@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: devan
+      POSTGRES_PASSWORD: snip
+      POSTGRES_DB: snip
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data # Persists data
+      # Optional: Uncomment and adjust for initialization scripts
+      # - ./initdb:/docker-entrypoint-initdb.d
+volumes:
+  db_data: # Define the named volume for data persistence
