@@ -18,6 +18,7 @@ async function InitServer() {
     expressMiddleware(await CreateApolloServer(), {
       context: async ({ req }) => {
         const token = req.headers['token'];
+        
         if (!token) {
           return { user: null };
         }
